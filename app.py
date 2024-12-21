@@ -10,7 +10,7 @@ num_images = st.sidebar.slider("Número de imágenes", 1, 16, 4)
 latent_dim = 128
 
 if st.button("Generar Imágenes"):
-    ort_session = ort.InferenceSession("gan_model_pruned_80.onnx"")
+    ort_session = ort.InferenceSession("gan_model_pruned_80.onnx")
     random_latent_vectors = np.random.normal(size=(num_images, latent_dim)).astype(np.float32)
     onnx_output = ort_session.run(None, {"args_0": random_latent_vectors})
 
